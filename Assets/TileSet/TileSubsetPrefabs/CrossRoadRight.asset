@@ -13,12 +13,25 @@ MonoBehaviour:
   m_Name: CrossRoadRight
   m_EditorClassIdentifier: Assembly-CSharp::Tile
   TileName: CrossRoadRight
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 575700942898518731, guid: 2be503ce22ee98a44b3e6f18fe7e2d01, type: 3}
   Top:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
   Bottom:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: 9eda64184bdd3334ab906902d6ff8b65, type: 2}
+    - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
   Left:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
+    - {fileID: 11400000, guid: 8e61cd4039e956f4680c515f68f3056e, type: 2}
+    - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
   Right:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000, guid: 62bd9772a71ad2840b757eef7fafd732, type: 2}
+    - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
+    - {fileID: 11400000, guid: 9eda64184bdd3334ab906902d6ff8b65, type: 2}

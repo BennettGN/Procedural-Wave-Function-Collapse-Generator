@@ -25,11 +25,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 62bd9772a71ad2840b757eef7fafd732, type: 2}
   Left:
     connectedTiles:
-    - {fileID: 11400000, guid: 13fec5e32e898a045928c74829e09bc5, type: 2}
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
+    - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
   Right:
     connectedTiles:
-    - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
+    - {fileID: 11400000, guid: 13fec5e32e898a045928c74829e09bc5, type: 2}
     - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
     - {fileID: 11400000}

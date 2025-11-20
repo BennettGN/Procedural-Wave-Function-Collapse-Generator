@@ -15,10 +15,23 @@ MonoBehaviour:
   TileName: CrossRoadLeft
   Prefab: {fileID: 7913670549284550949, guid: c1355737e624281469d2aa5ad7aedb29, type: 3}
   Top:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
+    - {fileID: 11400000, guid: 13fec5e32e898a045928c74829e09bc5, type: 2}
+    - {fileID: 11400000}
   Bottom:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: 13fec5e32e898a045928c74829e09bc5, type: 2}
+    - {fileID: 11400000, guid: 9eda64184bdd3334ab906902d6ff8b65, type: 2}
+    - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
   Left:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000, guid: 62bd9772a71ad2840b757eef7fafd732, type: 2}
+    - {fileID: 11400000, guid: 13fec5e32e898a045928c74829e09bc5, type: 2}
+    - {fileID: 11400000, guid: 9eda64184bdd3334ab906902d6ff8b65, type: 2}
   Right:
-    connectedTiles: []
+    connectedTiles:
+    - {fileID: 11400000, guid: 13fec5e32e898a045928c74829e09bc5, type: 2}
+    - {fileID: 11400000, guid: 8e61cd4039e956f4680c515f68f3056e, type: 2}
+    - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
