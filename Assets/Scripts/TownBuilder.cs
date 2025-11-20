@@ -11,6 +11,11 @@ public class TownBuilder : MonoBehaviour
     [SerializeField] private float tileSizeOffset = 1.0f;
     [SerializeField ] private bool animateCollapse = false;
     [SerializeField] private int animateDelay = 0;
+    [SerializeField] private bool startAtCenter = false;
+    [SerializeField] private bool startAtBottomLeftCorner = false;
+    [SerializeField] private bool startAtTopRightCorner = false;
+    [SerializeField] private bool startAtBottomRightCorner = false;
+    [SerializeField] private bool startAtTopLeftCorner = false;
 
     //Grid of tiles 
     private Tile[,] TownGrid;
@@ -19,6 +24,7 @@ public class TownBuilder : MonoBehaviour
 
     private List<Vector2Int> offsets;
 
+    private HashSet<Vector2Int> visited;
 
     public enum Direction
     {
@@ -29,12 +35,36 @@ public class TownBuilder : MonoBehaviour
     }
     void Start()
     {
+        visited = new HashSet<Vector2Int>();
         TownGrid = new Tile[Width, Height];
         TilesToCollapse = new List<Vector2Int>();
         TilesToCollapse.Clear();
 
-        //Start from middle of grid
-        TilesToCollapse.Add(new Vector2Int(Width / 2, Height / 2));
+        // Add starting positions based on toggles
+        if (startAtCenter)
+        {
+            TilesToCollapse.Add(new Vector2Int(Width / 2, Height / 2));
+        }
+
+        if (startAtBottomLeftCorner)
+        {
+            TilesToCollapse.Add(new Vector2Int(2, 2));
+        }
+
+        if (startAtTopRightCorner)
+        {
+            TilesToCollapse.Add(new Vector2Int(Width - 2, Height - 2));
+        }
+
+        if (startAtBottomRightCorner)
+        {
+            TilesToCollapse.Add(new Vector2Int(Width - 2, 2));
+        }
+
+        if (startAtTopLeftCorner)
+        {
+            TilesToCollapse.Add(new Vector2Int(1, Height - 2));
+        }
 
         offsets = new List<Vector2Int>
         {
@@ -121,16 +151,29 @@ public class TownBuilder : MonoBehaviour
         {
             Tile tilePicked = possibleTiles[Random.Range(0, possibleTiles.Count)];
             TownGrid[x, y] = tilePicked;
+            TilesToCollapse.RemoveAt(0);
+
         }
         else
         {
-            //Render Default Tile if no possible tiles
-            TownGrid[x, y] = defaultTile;
-            Debug.Log("No possible tiles found, placing default tile at: " + x + ", " + y);
+            if (visited.Contains(TilesToCollapse[0]))
+            {
+                //Render Default Tile if no possible tiles
+                TownGrid[x, y] = defaultTile;
+                Debug.Log("No possible tiles found, placing default tile at: " + x + ", " + y);
+                TilesToCollapse.RemoveAt(0);
+            }
+            else
+            {
+                visited.Add(TilesToCollapse[0]);
+                TilesToCollapse.Add(TilesToCollapse[0]);
+                TilesToCollapse.RemoveAt(0);
+                return;
+            }
         }
 
         GameObject tileObject = Instantiate(TownGrid[x, y].Prefab, new Vector3(x * tileSizeOffset, 0, y * tileSizeOffset), TownGrid[x, y].Prefab.transform.rotation);
-        if ((TownGrid[x,y].OptionalDecorations.Count > 0))
+        if ((TownGrid[x, y].OptionalDecorations.Count > 0))
         {
             bool generateRandomDecoration = Random.Range(0, 2) == 0;
             if (generateRandomDecoration)
@@ -139,7 +182,6 @@ public class TownBuilder : MonoBehaviour
             }
         }
 
-        TilesToCollapse.RemoveAt(0);
     }
 
     //Updates current tiles to remove all current tiles that are not in allowed tiles (currentTiles = currentTiles intersect allowedTiles)
@@ -169,4 +211,5 @@ public class TownBuilder : MonoBehaviour
             System.Threading.Thread.Sleep(animateDelay);
         }
     }
+
 }

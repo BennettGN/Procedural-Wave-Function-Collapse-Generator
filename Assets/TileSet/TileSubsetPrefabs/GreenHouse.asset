@@ -17,8 +17,6 @@ MonoBehaviour:
   Top:
     connectedTiles:
     - {fileID: 11400000, guid: 8e61cd4039e956f4680c515f68f3056e, type: 2}
-    - {fileID: 11400000}
-    - {fileID: 11400000, guid: 98eec506caea69645aa2bd4980f0a5c0, type: 2}
   Bottom:
     connectedTiles:
     - {fileID: 11400000, guid: 9eda64184bdd3334ab906902d6ff8b65, type: 2}
