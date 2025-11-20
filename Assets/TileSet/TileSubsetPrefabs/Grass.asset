@@ -19,17 +19,28 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 62bd9772a71ad2840b757eef7fafd732, type: 2}
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 9eda64184bdd3334ab906902d6ff8b65, type: 2}
+    - {fileID: 11400000, guid: 6a25be0f28d7ac34484ac47380f29bc5, type: 2}
+    - {fileID: 11400000, guid: 98eec506caea69645aa2bd4980f0a5c0, type: 2}
   Bottom:
     connectedTiles:
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 62bd9772a71ad2840b757eef7fafd732, type: 2}
+    - {fileID: 11400000, guid: 6a25be0f28d7ac34484ac47380f29bc5, type: 2}
+    - {fileID: 11400000, guid: 98eec506caea69645aa2bd4980f0a5c0, type: 2}
   Left:
     connectedTiles:
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
     - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
+    - {fileID: 11400000, guid: 6a25be0f28d7ac34484ac47380f29bc5, type: 2}
+    - {fileID: 11400000, guid: 98eec506caea69645aa2bd4980f0a5c0, type: 2}
   Right:
     connectedTiles:
     - {fileID: 11400000, guid: 13fec5e32e898a045928c74829e09bc5, type: 2}
     - {fileID: 11400000, guid: 469922eef0f471c448c912ef51cf12eb, type: 2}
     - {fileID: 11400000}
+    - {fileID: 11400000, guid: 6a25be0f28d7ac34484ac47380f29bc5, type: 2}
+    - {fileID: 11400000, guid: 98eec506caea69645aa2bd4980f0a5c0, type: 2}
+  optionalDecorations:
+  - {fileID: 919132149155446097, guid: 5a27e33a336c401499c88b2458ed902c, type: 3}
+  - {fileID: 919132149155446097, guid: e3c14eaf2bf416940b9287aef0c74b8b, type: 3}

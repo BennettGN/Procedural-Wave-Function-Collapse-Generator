@@ -11,6 +11,12 @@ public class Tile : ScriptableObject
     public TileConnection Bottom;
     public TileConnection Left;
     public TileConnection Right;
+    [SerializeField] private List<GameObject> optionalDecorations;
+
+    public List<GameObject> OptionalDecorations
+    {
+        get { return optionalDecorations; }
+    }
 }
 
 [System.Serializable]

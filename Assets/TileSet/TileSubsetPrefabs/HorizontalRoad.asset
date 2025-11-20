@@ -19,6 +19,7 @@ MonoBehaviour:
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 8e61cd4039e956f4680c515f68f3056e, type: 2}
     - {fileID: 11400000, guid: 9eda64184bdd3334ab906902d6ff8b65, type: 2}
+    - {fileID: 11400000, guid: 6a25be0f28d7ac34484ac47380f29bc5, type: 2}
   Bottom:
     connectedTiles:
     - {fileID: 11400000, guid: 8e61cd4039e956f4680c515f68f3056e, type: 2}
@@ -31,3 +32,4 @@ MonoBehaviour:
     connectedTiles:
     - {fileID: 11400000}
     - {fileID: 11400000, guid: 2693b2ba48c377c4490ba06dbc2f02e5, type: 2}
+  optionalDecorations: []

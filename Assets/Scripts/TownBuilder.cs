@@ -117,7 +117,7 @@ public class TownBuilder : MonoBehaviour
             }
         }
 
-        if (possibleTiles.Count > 0)
+        if (possibleTiles.Count > 0 && IsInBounds(new Vector2Int(x+1,y+1)) && IsInBounds(new Vector2Int(x - 1, y - 1)))
         {
             Tile tilePicked = possibleTiles[Random.Range(0, possibleTiles.Count)];
             TownGrid[x, y] = tilePicked;
@@ -130,6 +130,15 @@ public class TownBuilder : MonoBehaviour
         }
 
         GameObject tileObject = Instantiate(TownGrid[x, y].Prefab, new Vector3(x * tileSizeOffset, 0, y * tileSizeOffset), TownGrid[x, y].Prefab.transform.rotation);
+        if ((TownGrid[x,y].OptionalDecorations.Count > 0))
+        {
+            bool generateRandomDecoration = Random.Range(0, 2) == 0;
+            if (generateRandomDecoration)
+            {
+                Instantiate(TownGrid[x, y].OptionalDecorations[Random.Range(0, TownGrid[x, y].OptionalDecorations.Count)], new Vector3(x * tileSizeOffset + Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), y * tileSizeOffset), Quaternion.identity);
+            }
+        }
+
         TilesToCollapse.RemoveAt(0);
     }
 
