@@ -7,7 +7,7 @@ public class AgentRider : MonoBehaviour
 
     [Header("Movement Settings")]
     public float lookAheadDistance = 20f;
-    public float updateInterval = 0.5f;
+    public float updateInterval = 0.1f;
     private float nextUpdateTime;
 
     [Header("NavMesh Area Restriction")]

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AgentRider
   lookAheadDistance: 20
-  updateInterval: 0.1
+  updateInterval: 0.01
   allowedAreaName: Drivable
   turnCheckInterval: 3
   turnChance: 0.3
