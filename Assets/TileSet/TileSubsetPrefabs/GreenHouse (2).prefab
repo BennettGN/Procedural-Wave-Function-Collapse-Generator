@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3712094063327434897}
   - component: {fileID: 837343822303222834}
   - component: {fileID: 601447880552888163}
+  - component: {fileID: 2793258918023762286}
   m_Layer: 0
   m_Name: building-type-b
   m_TagString: Untagged
@@ -178,6 +179,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2793258918023762286
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596288370110383296}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5292590131479047705, guid: 70e0ae1ea5f4bea41b1f67fd4c158124, type: 3}
 --- !u!1 &3336958555976166364
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3925754998791828727}
+  - component: {fileID: 4446940877135716874}
   m_Layer: 0
   m_Name: GreenHouse (2)
   m_TagString: Untagged
@@ -212,6 +236,28 @@ Transform:
   - {fileID: 507828537715407013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &4446940877135716874
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336958555976166364}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8956276461189781062, guid: 5cf2e10ffbad73243ae5e6e1c79a66d5, type: 3}
 --- !u!1 &6528509383077370396
 GameObject:
   m_ObjectHideFlags: 0

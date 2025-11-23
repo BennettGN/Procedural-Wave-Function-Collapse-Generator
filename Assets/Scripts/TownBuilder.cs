@@ -1,5 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.AI.Navigation;
+using UnityEngine;
 
 public class TownBuilder : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class TownBuilder : MonoBehaviour
     [SerializeField] private Tile defaultTile;
     //Contains all possible tiles
     [SerializeField] private List<Tile> allTiles;
-    [SerializeField] private float tileSizeOffset = 1.0f;
+    [SerializeField] private float tileSizeOffset = 3.0f;
     [SerializeField ] private bool animateCollapse = false;
     [SerializeField] private int animateDelay = 0;
     [SerializeField] private bool startAtCenter = false;
@@ -16,6 +18,9 @@ public class TownBuilder : MonoBehaviour
     [SerializeField] private bool startAtTopRightCorner = false;
     [SerializeField] private bool startAtBottomRightCorner = false;
     [SerializeField] private bool startAtTopLeftCorner = false;
+    [SerializeField] private List<GameObject> carList;
+    [SerializeField] private int numCars = 0;
+    public static bool builtNavMesh = false;
 
     //Grid of tiles 
     private Tile[,] TownGrid;
@@ -25,6 +30,8 @@ public class TownBuilder : MonoBehaviour
     private List<Vector2Int> offsets;
 
     private HashSet<Vector2Int> visited;
+
+    public NavMeshSurface surface;
 
     public enum Direction
     {
@@ -90,7 +97,9 @@ public class TownBuilder : MonoBehaviour
         {
             Collapse();
         }
-
+        surface.BuildNavMesh();
+        builtNavMesh = true;
+        addCars();
     }
 
     public void Collapse()
@@ -209,6 +218,27 @@ public class TownBuilder : MonoBehaviour
         {
             Collapse();
             System.Threading.Thread.Sleep(animateDelay);
+        }else if (!builtNavMesh)
+        {
+            surface.BuildNavMesh();
+            builtNavMesh = true;
+            addCars();
+        }
+    }
+
+    void addCars()
+    {
+        GameObject[] roadTiles = GameObject.FindGameObjectsWithTag("Road");
+
+        while (numCars > 0)
+        {
+            // Pick random car and random road tile
+            GameObject carToGenerate = carList[Random.Range(0, carList.Count)];
+            GameObject randomRoadTile = roadTiles[Random.Range(0, roadTiles.Length)];
+            Vector3 spawnPosition = randomRoadTile.transform.position + new Vector3(0f,0f,-tileSizeOffset/2);
+
+            Instantiate(carToGenerate, spawnPosition, Quaternion.identity);
+            numCars--;
         }
     }
 
