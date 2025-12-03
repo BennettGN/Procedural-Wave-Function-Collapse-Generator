@@ -26,6 +26,7 @@ public class AgentRider : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
+        // Set allowed area mask for NavMesh sampling/pathfinding
         int area = NavMesh.GetAreaFromName(allowedAreaName);
         allowedAreaMask = 1 << area;
         agent.areaMask = allowedAreaMask;
@@ -60,6 +61,7 @@ public class AgentRider : MonoBehaviour
 
     void SetForwardDestination()
     {
+        //Give up if fell off nav mesh/road
         if (!agent.isOnNavMesh) return;
 
         // Consider random turn
@@ -72,7 +74,8 @@ public class AgentRider : MonoBehaviour
         // Move forward
         Vector3 forward = transform.position + transform.forward * lookAheadDistance;
 
-        if (TryFindNavPosition(forward, lookAheadDistance, out NavMeshHit hit))
+        //Continue moving in path of nav mesh if possible
+        if (NavMesh.SamplePosition(forward, out NavMeshHit hit, lookAheadDistance, allowedAreaMask))
         {
             agent.isStopped = false;
             agent.SetDestination(hit.position);
@@ -99,6 +102,7 @@ public class AgentRider : MonoBehaviour
         return false;
     }
 
+    // Attempts to turn in all directions when stuck
     void TryTurnAround()
     {
         float[] angles = { 180f, 135f, -135f, 90f, -90f, 45f, -45f };
@@ -133,6 +137,7 @@ public class AgentRider : MonoBehaviour
         return NavMesh.SamplePosition(point, out hit, range, allowedAreaMask);
     }
 
+    //Attempts to find a valid path to the target position
     bool TryValidPath(Vector3 target, out Vector3 result)
     {
         result = Vector3.zero;

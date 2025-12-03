@@ -182,6 +182,8 @@ public class TownBuilder : MonoBehaviour
         }
 
         GameObject tileObject = Instantiate(TownGrid[x, y].Prefab, new Vector3(x * tileSizeOffset, 0, y * tileSizeOffset), TownGrid[x, y].Prefab.transform.rotation);
+        
+        //Generate decorations such as trees
         if ((TownGrid[x, y].OptionalDecorations.Count > 0))
         {
             bool generateRandomDecoration = Random.Range(0, 2) == 0;
